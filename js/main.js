@@ -137,25 +137,8 @@ mainScene.update = function() {
         return false;
     }
     // ここにプログラムを作成します
-    if (this.cursors.left.isDown)
-    {
-        this.player.body.setVelocityX(-this.runSpeed);
-        this.player.anims.play('walk', true);
-        this.player.flipX = true;
-    }
-    else if (this.cursors.right.isDown)
-    {
-        this.player.body.setVelocityX(this.runSpeed);
-        this.player.anims.play('walk', true);
-        this.player.flipX = false;
-    } else {
-        this.player.body.setVelocityX(0);
-        this.player.anims.play('turn', true);
-    }
-    if (this.cursors.space.isDown && this.player.body.onFloor())
-    {
-        this.player.body.setVelocityY(-this.jumpPower);
-    }
+    
+    
 };
 
 mainScene.createEnemy = function() {
@@ -163,18 +146,14 @@ mainScene.createEnemy = function() {
     var enemyPositionX = Phaser.Math.RND.between(500, 2000);
 
     // ここにプログラムを作成します
-    var enemy = this.enemies.create(enemyPositionX, 100, enemyType);
-    enemy.body.setSize(350,350);
-    enemy.setDisplaySize(70, 70);
-    var speed = Phaser.Math.RND.pick(this.enemySpeed);
-    enemy.setVelocityX(speed);
+    
+    
 };
 
 function collectCoin(sprite, tile) {
     // ここにプログラムを作成します
-    this.coinLayer.removeTileAt(tile.x, tile.y);
-    this.score++;
-    this.text.setText(this.score);
+    
+    
 }
 
 function hitEnemy(player, enemy) {
@@ -184,12 +163,6 @@ function hitEnemy(player, enemy) {
     this.gameOver = true;
     
     // ここにプログラムを作成します
-    var cameraPositionX = this.cameras.main.midPoint.x;
-    var cameraPositionY = this.cameras.main.midPoint.y;
-    var gameover = this.add.image(cameraPositionX, cameraPositionY, 'gameover');
-    gameover.setDisplaySize(500,400);
     
-    this.input.keyboard.on('keydown', function(event) {
-        this.scene.start('mainScene');
-    }, this);
+    
 }
