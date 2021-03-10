@@ -143,25 +143,11 @@ mainScene.create = function () {
     this.physics.add.collider(this.fireGroup, this.groundLayer, this.hitFireGround, null, this);
     
     // ここにプログラムを作成します
-    // スペースキーでファイヤ発射
-    this.input.keyboard.on('keydown-SPACE', function() {
-        // ファイヤー作成
-        var x = this.player.body.center.x;
-        var y = this.player.body.center.y;
-        var fire = this.fireGroup.create(x, y, 'fire');
-        fire.body.setSize(20,20);
-        fire.setDisplaySize(80,80);
-        fire.body.setAllowGravity(false);
-        var speed = 400;
-        // プレイヤーの進行方向に発射
-        if( this.player.direction == 'left' ) {
-            fire.setAngle(90);
-            fire.setVelocityX(-speed);
-        } else {
-            fire.setAngle(-90);
-            fire.setVelocityX(speed);
-        }
-    }, this);
+    
+    
+    
+    
+    
 };
 
 mainScene.hitFire = function(enemy, fire) {
@@ -178,24 +164,11 @@ mainScene.update = function() {
         return false;
     }
     // ここにプログラムを作成します
-    if (this.cursors.left.isDown) {
-        this.player.body.setVelocityX(-this.runSpeed);
-        this.player.anims.play('walk', true);
-        this.player.flipX = true;
-        this.player.direction = 'left';
-    }
-    else if (this.cursors.right.isDown) {
-        this.player.body.setVelocityX(this.runSpeed);
-        this.player.anims.play('walk', true);
-        this.player.flipX = false;
-        this.player.direction = 'right';
-    } else {
-        this.player.body.setVelocityX(0);
-        this.player.anims.stop();
-    }
-    if (this.cursors.up.isDown && this.player.body.onFloor()) {
-        this.player.body.setVelocityY(-this.jumpPower);
-    }
+    
+    
+    
+    
+    
 };
 
 mainScene.createEnemy = function() {
@@ -203,18 +176,18 @@ mainScene.createEnemy = function() {
     var enemyPositionX = Phaser.Math.RND.between(500, 2000);
 
     // ここにプログラムを作成します
-    var enemy = this.enemies.create(enemyPositionX, 100, enemyType);
-    enemy.body.setSize(350,350);
-    enemy.setDisplaySize(70, 70);
-    var speed = Phaser.Math.RND.pick(this.enemySpeed);
-    enemy.setVelocityX(speed);
+    
+    
+    
+    
+    
 };
 
 mainScene.collectCoin = function(sprite, tile) {
     // ここにプログラムを作成します
-    this.coinLayer.removeTileAt(tile.x, tile.y);
-    this.score++;
-    this.text.setText(this.score);
+    
+    
+    
 };
 
 mainScene.hitEnemy = function(player, enemy) {
@@ -224,12 +197,9 @@ mainScene.hitEnemy = function(player, enemy) {
     this.gameOver = true;
     
     // ここにプログラムを作成します
-    var cameraPositionX = this.cameras.main.midPoint.x;
-    var cameraPositionY = this.cameras.main.midPoint.y;
-    var gameover = this.add.image(cameraPositionX, cameraPositionY, 'gameover');
-    gameover.setDisplaySize(500,400);
     
-    this.input.keyboard.on('keydown', function(event) {
-        this.scene.start('mainScene');
-    }, this);
+    
+    
+    
+    
 };
