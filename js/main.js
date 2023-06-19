@@ -130,7 +130,7 @@ mainScene.create = function () {
     this.cameras.main.setBackgroundColor('#99CCFF');
     
     // 画面左下に白色でテキスト表示
-    this.text = this.add.text(20, 565, this.score, {
+    this.text = this.add.text(20, this.game.config.height-40, this.score, {
         fontSize: '30px Open Sans',
         fill: '#ff0000'
     });

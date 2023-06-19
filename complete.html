@@ -7,15 +7,20 @@
 <script src="js/start.js"></script>
 <script src="js/main-complete.js"></script>
 <style>
-body {
-  margin: 0;
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+    overflow: hidden;
 }
 </style>
 <script>
 var config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: window.innerWidth,
+    height:window.innerHeight,
     physics: {
         default: 'arcade',
         arcade: {
@@ -26,6 +31,10 @@ var config = {
     scene: [loadScene, startScene, mainScene],
 };
 var game = new Phaser.Game(config);
+
+window.addEventListener("resize", (event) => {
+    game.scale.resize(window.innerWidth, window.innerHeight);
+},false);
 </script>
 </head>
 <body>
